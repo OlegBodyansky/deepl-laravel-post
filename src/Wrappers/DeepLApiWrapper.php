@@ -1,11 +1,11 @@
 <?php
 
-namespace JorisvanW\DeepL\Laravel\Wrappers;
+namespace OlegBodyansky\DeepL\Laravel\Wrappers;
 
-use JorisvanW\DeepL\Api\DeepLApiClient;
+use OlegBodyansky\DeepL\Api\DeepLApiClient;
 use Illuminate\Contracts\Config\Repository;
-use JorisvanW\DeepL\Api\Exceptions\ApiException;
-use JorisvanW\DeepL\Api\Cons\Translate as TranslateType;
+use OlegBodyansky\DeepL\Api\Exceptions\ApiException;
+use OlegBodyansky\DeepL\Api\Cons\Translate as TranslateType;
 
 /**
  * Class DeepLApiWrapper.
@@ -28,7 +28,7 @@ class DeepLApiWrapper
      * @param Repository     $config
      * @param DeepLApiClient $client
      *
-     * @throws \JorisvanW\DeepL\Api\Exceptions\ApiExcesption
+     * @throws \OlegBodyansky\DeepL\Api\Exceptions\ApiExcesption
      * @return void
      */
     public function __construct(Repository $config, DeepLApiClient $client)
@@ -66,7 +66,7 @@ class DeepLApiWrapper
     }
 
     /**
-     * @return \JorisvanW\DeepL\Api\Endpoints\UsageEndpoint
+     * @return \OlegBodyansky\DeepL\Api\Endpoints\UsageEndpoint
      */
     public function usage()
     {
@@ -74,7 +74,7 @@ class DeepLApiWrapper
     }
 
     /**
-     * @return \JorisvanW\DeepL\Api\Endpoints\TranslateEndpoint
+     * @return \OlegBodyansky\DeepL\Api\Endpoints\TranslateEndpoint
      */
     public function translations()
     {
@@ -82,21 +82,22 @@ class DeepLApiWrapper
     }
 
     /**
-     * Translate a collection of translations with \JorisvanW\DeepL\Api\Resources\Translate items from DeepL.
+     * Translate a collection of translations with \OlegBodyansky\DeepL\Api\Resources\Translate items from DeepL.
      *
      * @param string $text
      * @param string $to
      * @param string $from
      * @param array  $options
      *
-     * @return \JorisvanW\DeepL\Api\Resources\BaseResource|\JorisvanW\DeepL\Api\Resources\Translate
-     * @throws \JorisvanW\DeepL\Api\Exceptions\ApiException
+     * @return \OlegBodyansky\DeepL\Api\Resources\BaseResource|\OlegBodyansky\DeepL\Api\Resources\Translate
+     * @throws \OlegBodyansky\DeepL\Api\Exceptions\ApiException
      */
     public function translate(
         $text,
         $to = TranslateType::LANG_EN,
         $from = TranslateType::LANG_AUTO,
-        $options = []
+        $options = [],
+        $filters = []
     ) {
         $regexTemp = [];
 
@@ -109,7 +110,7 @@ class DeepLApiWrapper
             $text = str_replace(array_values($regexTemp), array_keys($regexTemp), $text);
         }
 
-        $response = $this->client->translations->translate($text, $to, $from, $options = []);
+        $response = $this->client->translations->translate($text, $to, $from, $options = [], $filters = []);
 
         // Trim the text
         foreach ($response->translations as $key => $translation) {
@@ -134,7 +135,7 @@ class DeepLApiWrapper
      * @param array  $options
      *
      * @return string
-     * @throws \JorisvanW\DeepL\Api\Exceptions\ApiException
+     * @throws \OlegBodyansky\DeepL\Api\Exceptions\ApiException
      */
     public function translateText(
         $text,

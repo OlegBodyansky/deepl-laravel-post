@@ -1,9 +1,9 @@
 <?php
 
-namespace JorisvanW\DeepL\Laravel\Facades;
+namespace OlegBodyansky\DeepL\Laravel\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use JorisvanW\DeepL\Laravel\Wrappers\DeepLApiWrapper;
+use OlegBodyansky\DeepL\Laravel\Wrappers\DeepLApiWrapper;
 
 /**
  * (Facade) Class DeepL.

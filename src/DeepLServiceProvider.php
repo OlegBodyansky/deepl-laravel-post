@@ -1,12 +1,12 @@
 <?php
 
-namespace JorisvanW\DeepL\Laravel;
+namespace OlegBodyansky\DeepL\Laravel;
 
-use JorisvanW\DeepL\Api\DeepLApiClient;
+use OlegBodyansky\DeepL\Api\DeepLApiClient;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Container\Container;
 use Laravel\Lumen\Application as LumenApplication;
-use JorisvanW\DeepL\Laravel\Wrappers\DeepLApiWrapper;
+use OlegBodyansky\DeepL\Laravel\Wrappers\DeepLApiWrapper;
 use Illuminate\Foundation\Application as LaravelApplication;
 
 /**

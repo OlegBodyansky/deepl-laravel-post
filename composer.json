@@ -1,19 +1,19 @@
 {
-    "name": "jorisvanw/deepl-laravel",
+    "name": "olegbodyansky/deepl-laravel-post",
     "description": "DeepL API client wrapper for Laravel",
     "keywords": ["deepl", "deeply", "laravel", "translation", "translate", "language", "api", "client", "english", "german", "french"],
-    "homepage": "https://github.com/JorisvanW/deepl-laravel",
+    "homepage": "https://github.com/OlegBodyansky/deepl-laravel-post",
     "license": "MIT",
     "authors": [
         {
-            "name": "Joris v. Willigen",
-            "email": "me@jorisvanw.me"
+            "name": "Oleg Bodyansky",
+            "email": "oleg.bodyansky@gmail.com"
         }
     ],
     "require": {
-        "php": ">=7.0.0",
+        "php": "^7.4|^8.0",
         "illuminate/support": "^5.5|^6.0|^7.0|^8.0|^9.0",
-        "jorisvanw/deepl-api-php": "^0.0"
+        "olegbodyansky/deepl-api-php": "^0.0"
     },
     "require-dev": {
         "mockery/mockery": "^1.0",
@@ -21,7 +21,7 @@
     },
     "autoload": {
         "psr-4": {
-            "JorisvanW\\DeepL\\Laravel\\": "src/"
+            "OlegBodyansky\\DeepL\\Laravel\\": "src/"
         },
         "files": [
             "src/helpers.php"
@@ -30,10 +30,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "JorisvanW\\DeepL\\Laravel\\DeepLServiceProvider"
+                "OlegBodyansky\\DeepL\\Laravel\\DeepLServiceProvider"
             ],
             "aliases": {
-                "DeepL": "JorisvanW\\DeepL\\Laravel\\Facades\\DeepL"
+                "DeepL": "OlegBodyansky\\DeepL\\Laravel\\Facades\\DeepL"
             }
         }
     }

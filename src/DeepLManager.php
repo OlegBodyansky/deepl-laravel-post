@@ -1,6 +1,6 @@
 <?php
 
-namespace JorisvanW\DeepL\Laravel;
+namespace OlegBodyansky\DeepL\Laravel;
 
 use Illuminate\Contracts\Container\Container;
 
