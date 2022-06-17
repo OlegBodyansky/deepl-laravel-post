@@ -111,7 +111,7 @@ class DeepLApiWrapper
             $text = str_replace(array_values($regexTemp), array_keys($regexTemp), $text);
         }
 
-        $response = $this->client->translations->translate($text, $to, $from, $options = [], $filters = []);
+        $response = $this->client->translations->translate($text, $to, $from, $options, $filters);
 
         // Trim the text
         foreach ($response->translations as $key => $translation) {
@@ -142,9 +142,10 @@ class DeepLApiWrapper
         $text,
         $to = TranslateType::LANG_EN,
         $from = TranslateType::LANG_AUTO,
-        $options = []
+        $options = [],
+        $filters = []
     ) {
-        return $this->trimText($this->translate($text, $to, $from, $options)->translations[0]->text);
+        return $this->trimText($this->translate($text, $to, $from, $options, $filters)->translations[0]->text);
     }
 
     /**
